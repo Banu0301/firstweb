@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISRO Space Explorer</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/planets.css">
+    <style>
+        /* Mobile-friendly Navigation Menu */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f0c040; /* Highlight color */
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .mobile-menu a {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+
+
+
+
+        .contact-section {
+    background-color: #111;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.contact-content a {
+    color: #f0c040; /* Highlight color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-content a:hover {
+    color: #ffb700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contact Section */
+.contact-section {
+    background: linear-gradient(135deg, #0b0c10, #1f2833);
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #f0c040; /* Highlight color */
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-btn {
+    text-decoration: none;
+    background-color: #f0c040;
+    color: #111;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #ffb700;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Explore Section */
+.explore-section {
+    text-align: center;
+    background: #0b0c10;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.explore-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #f0c040;
+}
+
+.explore-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.explore-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.explore-card {
+    background: #1f2833;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.explore-card:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Astronaut Section */
+.astronaut-section {
+    background: linear-gradient(135deg, #1f2833, #0b0c10);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.astronaut-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.astronaut-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #f0c040;
+}
+
+.astronaut-details h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #f0c040;
+}
+
+.astronaut-details p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+
+
+
+
+/* Countdown Section */
+.countdown-section {
+    background: #1f2833;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#countdown-timer {
+    font-size: 2rem;
+    margin-top: 10px;
+    color: #f0c040;
+}
+
+
+
+
+/* Space Gallery */
+.gallery-section {
+    background: #0b0c10;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.gallery-section h2 {
+    font-size: 2.5rem;
+    color: #f0c040;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px;
+}
+
+.gallery img {
+    border-radius: 10px;
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Stars background -->
+    <div class="stars"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-container">
+        <div class="logo">ISRO Space Explorer</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#missions">Missions</a>
+            <a href="#planets">Planets</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home" onclick="toggleMenu()">Home</a>
+            <a href="#missions" onclick="toggleMenu()">Missions</a>
+            <a href="#planets" onclick="toggleMenu()">Planets</a>
+            <a href="#contact" onclick="toggleMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to ISRO</h1>
+            <p>Exploring the boundaries of space for the benefit of mankind</p>
+            <button class="cta-button" onclick="startJourney()">Explore Missions</button>
+        </div>
+    </section>
+
+    <!-- Planets Section -->
+    <section id="planets" class="planets-section">
+        <h2>Solar System Explorer</h2>
+        <div class="solar-system">
+            <div class="sun"></div>
+            <div class="orbit mercury-orbit">
+                <div class="planet mercury"></div>
+            </div>
+            <div class="orbit venus-orbit">
+                <div class="planet venus"></div>
+            </div>
+            <div class="orbit earth-orbit">
+                <div class="planet earth"></div>
+            </div>
+            <div class="orbit mars-orbit">
+                <div class="planet mars"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missions Section -->
+    <section id="missions" class="missions-section">
+        <h2>Our Missions</h2>
+        <div class="mission-cards">
+            <div class="mission-card">
+                <div class="mission-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+                <h3>Chandrayaan-3</h3>
+                <p>India's successful soft landing on the Moon.</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-image" style="background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+                <h3>PSLV</h3>
+                <p>India's trusted satellite launch vehicle.</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-image" style="background-image: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+                <h3>Gaganyaan</h3>
+                <p>India's first human spaceflight program.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="hero">
+        <div class="hero-content">
+            <h2>Space is an inspirational concept that allows you to dream big!!</h2><br>
+           
+            <img src="image/the.jpg" alt="Space Image">
+            
+        </div>
+    </section>
+    <section id="contact" class="contact-section">
+    <h2>Look at the stars, not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist.</h2>
+    
+    </div>
+</section>
+
+
+
+
+
+<!-- Explore the Universe Section -->
+<section id="explore" class="explore-section">
+    <h2>Explore the Universe</h2>
+    <p>Dive into fascinating facts about space, planets, and galaxies!</p>
+    <div class="explore-cards">
+        <div class="explore-card">
+            <h3>Mars</h3>
+            <p>The Red Planet that may hold signs of past life.</p>
+        </div>
+        <div class="explore-card">
+            <h3>Black Holes</h3>
+            <p>Mysterious cosmic entities with immense gravity.</p>
+        </div>
+        <div class="explore-card">
+            <h3>Milky Way</h3>
+            <p>Our galactic home with billions of stars.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Countdown Section -->
+<section id="countdown" class="countdown-section">
+    <h2>Upcoming Launch</h2>
+    <div class="countdown-container">
+        <p>Next mission launch in:</p>
+        <div id="countdown-timer">00:00:00</div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <h2>Get in Touch</h2>
+    <p>Connect with us for more updates and insights about our missions!</p>
+    <div class="contact-buttons">
+        <a href="https://www.isro.gov.in" target="_blank" class="contact-btn">Visit ISRO Website</a>
+        <a href="mailto:isrohq@isro.gov.in" class="contact-btn">Email Us</a>
+    </div>
+</section>
+
+
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+
+
+
+
+
+        // Basic Countdown Timer
+function startCountdown() {
+    const countdownElement = document.getElementById('countdown-timer');
+    const launchDate = new Date('2024-12-01T12:00:00').getTime();
+
+    const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((distance / (1000 * 60)) % 60);
+        const seconds = Math.floor((distance / 1000) % 60);
+
+        countdownElement.textContent = `${hours}:${minutes}:${seconds}`;
+
+        if (distance < 0) {
+            clearInterval(timer);
+            countdownElement.textContent = "Launched!";
+        }
+    }, 1000);
+}
+
+startCountdown();
+
+    </script>
+</body>
+</html>
